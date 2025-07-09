@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Birthday Masoom</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('https://i.imgur.com/0o4bFgP.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Great Vibes', cursive;
+            color: #fff;
+            text-align: center;
+        }
+        h1 {
+            font-size: 4em;
+            margin-top: 50px;
+            text-shadow: 2px 2px 4px #000;
+        }
+        .message {
+            font-size: 1.5em;
+            margin: 20px auto;
+            max-width: 700px;
+            text-shadow: 1px 1px 2px #000;
+        }
+        .cake {
+            width: 150px;
+            margin: 30px auto;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .countdown {
+            font-size: 2em;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Happy Birthday Masoom!</h1>
+    <img src="https://i.imgur.com/NJ7H0GG.png" alt="Cake" class="cake">
+    <div class="message">
+        You're the kindest, funniest and most beautiful soul I know. 
+        May your smile shine brighter each year. 🎉❤️
+    </div>
+    <div class="countdown" id="countdown">
+        Countdown to next birthday: Loading...
+    </div>
+
+    <script>
+        function updateCountdown() {
+            const now = new Date();
+            const next = new Date(now.getFullYear() + 1, 6, 9); // Next 9 July
+            const diff = next - now;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / (1000 * 60)) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+            document.getElementById('countdown').innerHTML = 
+                `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
